@@ -1,0 +1,27 @@
+// @server 语法块主要用于控制对 HTTP 服务生成时 meta 信息，目前支持功能有：
+// 1. 路由分组
+// 2. 中间件声明
+// 3. 路由前缀
+// 4. 超时配置
+// 5. jwt 鉴权开关
+// 所有声明仅对当前 service 中的路由有效
+@server(
+    group: clusterInfo
+    prefix: /v1/cluster
+    // 定义一个鉴权控制的中间件，多个中间件以英文逗号,分割，如 Middleware1,Middleware2,中间件按声明顺序执行
+    middleware: EarlyCheckMiddleware
+)
+
+service operator {
+    @doc "获取集群ns"
+    @handler GetClusterNamespace
+    post /getclusternamespace/list (GetClusterNamespaceReq) returns (GetClusterNamespaceResp)
+}
+type GetClusterNamespaceReq {
+    ClusterId string `json:"cluster_id"`
+    Namespace string `json:"namespace"`
+}
+
+type GetClusterNamespaceResp {
+    Namespcace []string `json:"namespace"`
+}
