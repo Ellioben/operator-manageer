@@ -1,6 +1,6 @@
 # Operator Manager
 
-Operator Manager 是一个用 Go 语言编写的工具，旨在简化 Kubernetes 中操作k8s资源的管理服务。它提供了一种领域特定语言 (DSL) 来定义。结合go-zero生成相关的web框架
+Operator Manager 是一个用 Go 语言编写的工具，旨在简化多集群下对 Kubernetes 资源的管理的服务，结合go-zero的web框架
 ## 特性
 
 - **DSL 定义**: 使用简单的 DSL 来定义api和管理 Kubernetes 操作符。
@@ -30,4 +30,4 @@ bash
 ```
 ./operator-manageer
 ```
-打开浏览器，访问 http://localhost:8080。
+打开浏览器，访问 http://localhost:8888。
