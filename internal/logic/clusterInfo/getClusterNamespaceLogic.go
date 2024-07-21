@@ -24,7 +24,6 @@ func NewGetClusterNamespaceLogic(ctx context.Context, svcCtx *svc.ServiceContext
 }
 
 func (l *GetClusterNamespaceLogic) GetClusterNamespace(req *types.GetClusterNamespaceReq) (resp *types.GetClusterNamespaceResp, err error) {
-	// todo: add your logic here and delete this line
-
+	// 获取上下文的clientset来执行集群操作
 	return
 }
