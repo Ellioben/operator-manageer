@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"demo/internal/config"
+	"operator-manager/internal/config"
 )
 
 type ServiceContext struct {
