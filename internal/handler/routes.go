@@ -2,12 +2,11 @@
 package handler
 
 import (
+	"github.com/zeromicro/go-zero/rest"
 	"net/http"
 
 	clusterInfo "operator-manager/internal/handler/clusterInfo"
 	"operator-manager/internal/svc"
-
-	"github.com/zeromicro/go-zero/rest"
 )
 
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
@@ -16,12 +15,16 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			[]rest.Middleware{serverCtx.EarlyCheckMiddleware},
 			[]rest.Route{
 				{
+					Method:  http.MethodGet,
+					Path:    "/api/clusters",
+					Handler: clusterInfo.GetClusterNamespaceHandler(serverCtx),
+				},
+				{
 					Method:  http.MethodPost,
 					Path:    "/getclusternamespace/list",
 					Handler: clusterInfo.GetClusterNamespaceHandler(serverCtx),
 				},
 			}...,
 		),
-		rest.WithPrefix("/v1/cluster"),
 	)
 }

@@ -1,3 +1,12 @@
-Name: operator
+Name: operator-manager
 Host: 0.0.0.0
 Port: 8888
+AuthToken: "your-secure-token"
+
+Redis:
+  Host: 127.0.0.1:6379
+  Password: ""
+  DB: 0
+
+MySQL:
+  DSN: "root:password@tcp(localhost:3306)/cluster_manager?parseTime=true"
